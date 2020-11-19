@@ -54,7 +54,7 @@ public class ApplicantTest {
         }
 
         assertThat(count).isEqualTo(1);
-        assertThat(applicants).hasSize(2).contains(applicant1, applicant2);
+        assertThat(applicants).hasSize(3).contains(applicant1, applicant2);
     }
 
     @Test
