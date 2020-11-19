@@ -23,14 +23,7 @@ pipeline {
                 }
             }
         }
-        
-        stage ('Cucumber Reports') {
-            steps {
-                cucumber buildstatus: "UNSTABLE",
-                fileIncludePattern: "**/cucumber.json",
-                jsonReportDirectory: "target"
-            }
-        }
+       
         
     }
 }
