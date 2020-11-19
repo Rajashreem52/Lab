@@ -2,17 +2,11 @@ pipeline {
     agent any
    
     stages {
-        stage ('Compile Stage') {
+        stage ('Build Stage') {
             steps {
                 withMaven(maven: 'maven') {
-                    sh 'mvn clean compile'
+                    sh 'mvn clean package'
                 }
-            }
-        }
-
-        stage ('Authentication Stage') {
-            steps {
-                input("Do you want to proceed?")
             }
         }
         
@@ -22,6 +16,16 @@ pipeline {
                     sh 'mvn test'
                 }
             }
+        }
+        
+        stage ('Authentication Stage') {
+            steps {
+                input("Do you want to proceed?")
+            }
+        }
+        
+        stage ('Generate Report') {
+            step([$class: "CucumberReportPublisher", failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1])
         }
        
         
