@@ -1,5 +1,4 @@
 ##Amazon Warehouse App
-For test...
 
 #### REST APIs
 1. GET: http://localhost:8080/applicants/populate
