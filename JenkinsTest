@@ -10,6 +10,12 @@ pipeline {
             }
         }
         
+        stage ('Authentication Stage') {
+            steps {
+                input("Do you want to proceed?")
+            }
+        }
+        
         stage ('Testing Stage') {
             steps {
                 withMaven(maven: 'maven') {
@@ -18,17 +24,6 @@ pipeline {
             }
         }
         
-        stage ('Authentication Stage') {
-            steps {
-                input("Do you want to proceed?")
-            }
-        }
-        
-        stage ('Generate Report') {
-            steps{
-                [$class: "CucumberReportPublisher", failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1]
-            }
-        }
        
         
     }
