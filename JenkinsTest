@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent any
    
     stages {
@@ -10,11 +10,6 @@ pipeline {
             }
         }
         
-        stage ('Authentication Stage') {
-            steps {
-                input("Do you want to proceed?")
-            }
-        }
         
         stage ('Testing Stage') {
             steps {
@@ -26,7 +21,7 @@ pipeline {
         
         stage ('Email') {
             steps {
-                emailext body: 'Now', subject: 'Test', to: 'rafikarim1414@gmail.com'
+                emailext body: 'Now', subject: 'Test', to: 'rajashreem52@gmail.com'
             }
         }
        
