@@ -1,31 +1,14 @@
 node{
     checkout scm
     stage('Build') {
+    pipeline{
+    }
        withMaven(maven: 'maven') {
                     sh 'mvn compile'
                 }
-  pipeline {
-    agent any
-   
-    stages {
-       
-       
-        
-        stage ('Testing Stage') {
-            steps {
-                withMaven(maven: 'maven') {
-                    sh 'mvn test'
-                }
-            }
-        }
-        
-       
-       
-        
-    }
-}
     }
     stage('Test') {
+    
        withMaven(maven: 'maven') {
                     sh 'mvn test'
                 }
