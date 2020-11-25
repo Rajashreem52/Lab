@@ -4,7 +4,7 @@ node{
        withMaven(maven: 'maven') {
                     sh 'mvn compile'
                 }
-        git 'http://github.com/brentlaster/roarv2'
+        git 'https://github.com/Rajashreem52/Lab/blob/master/JenkinsFile'
     }
     stage('Test') {
     
