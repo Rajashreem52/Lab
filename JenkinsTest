@@ -4,12 +4,13 @@ node{
        withMaven(maven: 'maven') {
                     sh 'mvn compile'
                 }
-        sh 'https://github.com/Rajashreem52/Lab/blob/master/JenkinsFile'
+       build job: 'declartivepipeline'
     }
     stage('Test') {
     
        withMaven(maven: 'maven') {
                     sh 'mvn test'
                 }
+                build job: 'declartivepipeline'
     }
 }
