@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+   
+    stages {
+        
+        
+        stage ('Authentication Stage') {
+            steps {
+                input("Do you want to proceed?")
+            }
+        }
+        
+       
+        
+    }
+}
