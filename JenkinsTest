@@ -4,7 +4,7 @@ node{
        withMaven(maven: 'maven') {
                     sh 'mvn compile'
                 }
-        git 'https://github.com/Rajashreem52/Lab/blob/master/JenkinsFile'
+        sh 'https://github.com/Rajashreem52/Lab/blob/master/JenkinsFile'
     }
     stage('Test') {
     
